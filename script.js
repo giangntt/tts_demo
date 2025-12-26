@@ -96,7 +96,7 @@ const demoData = {
     ]
 };
 
-// Create audio player component
+// Create audio player component with duration display
 function createAudioPlayer(audioSrc, label) {
     const wrapper = document.createElement('div');
     wrapper.className = 'audio-player-wrapper';
@@ -106,18 +106,57 @@ function createAudioPlayer(audioSrc, label) {
     audio.src = audioSrc;
     audio.preload = 'metadata';
     
+    const controlsContainer = document.createElement('div');
+    controlsContainer.className = 'audio-controls';
+    
     const playButton = document.createElement('button');
     playButton.className = 'play-button';
     playButton.innerHTML = '▶';
     playButton.setAttribute('aria-label', `Play ${label}`);
     
+    const durationDisplay = document.createElement('span');
+    durationDisplay.className = 'audio-duration';
+    durationDisplay.textContent = '--:--';
+    
     let isPlaying = false;
+    
+    // Format time helper
+    const formatTime = (seconds) => {
+        if (!isFinite(seconds)) return '--:--';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    };
+    
+    // Load duration when metadata is available
+    audio.addEventListener('loadedmetadata', () => {
+        const duration = audio.duration;
+        if (isFinite(duration)) {
+            durationDisplay.textContent = formatTime(duration);
+        }
+    });
+    
+    // Update duration display during playback (show current/total)
+    audio.addEventListener('timeupdate', () => {
+        if (isPlaying) {
+            const current = audio.currentTime;
+            const duration = audio.duration;
+            if (isFinite(duration)) {
+                durationDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+            }
+        }
+    });
     
     playButton.addEventListener('click', () => {
         if (isPlaying) {
             audio.pause();
             playButton.innerHTML = '▶';
             isPlaying = false;
+            // Reset to total duration when paused
+            const duration = audio.duration;
+            if (isFinite(duration)) {
+                durationDisplay.textContent = formatTime(duration);
+            }
         } else {
             audio.play();
             playButton.innerHTML = '⏸';
@@ -128,6 +167,11 @@ function createAudioPlayer(audioSrc, label) {
     audio.addEventListener('ended', () => {
         playButton.innerHTML = '▶';
         isPlaying = false;
+        // Show total duration when ended
+        const duration = audio.duration;
+        if (isFinite(duration)) {
+            durationDisplay.textContent = formatTime(duration);
+        }
     });
     
     audio.addEventListener('pause', () => {
@@ -137,13 +181,15 @@ function createAudioPlayer(audioSrc, label) {
         }
     });
     
-    wrapper.appendChild(playButton);
+    controlsContainer.appendChild(playButton);
+    controlsContainer.appendChild(durationDisplay);
+    wrapper.appendChild(controlsContainer);
     wrapper.appendChild(audio);
     
     return wrapper;
 }
 
-// Create demo card
+// Create demo card with line-by-line audio layout
 function createDemoCard(demo) {
     const card = document.createElement('div');
     card.className = 'demo-card';
@@ -166,26 +212,34 @@ function createDemoCard(demo) {
     text.className = 'demo-text';
     text.textContent = demo.text;
     
-    const promptSection = document.createElement('div');
-    promptSection.className = 'audio-section';
-    const promptLabel = document.createElement('span');
-    promptLabel.className = 'audio-label';
-    promptLabel.textContent = '📢 Reference Prompt:';
-    promptSection.appendChild(promptLabel);
-    promptSection.appendChild(createAudioPlayer(demo.promptAudio, 'prompt'));
+    // Create audio rows (line by line)
+    const audioRows = document.createElement('div');
+    audioRows.className = 'audio-rows';
     
-    const synthSection = document.createElement('div');
-    synthSection.className = 'audio-section';
+    // Reference Prompt row
+    const promptRow = document.createElement('div');
+    promptRow.className = 'audio-row';
+    const promptLabel = document.createElement('span');
+    promptLabel.className = 'audio-row-label';
+    promptLabel.textContent = '📢 Reference Prompt:';
+    promptRow.appendChild(promptLabel);
+    promptRow.appendChild(createAudioPlayer(demo.promptAudio, 'prompt'));
+    
+    // Synthesized Output row
+    const synthRow = document.createElement('div');
+    synthRow.className = 'audio-row';
     const synthLabel = document.createElement('span');
-    synthLabel.className = 'audio-label';
+    synthLabel.className = 'audio-row-label';
     synthLabel.textContent = '🎵 Synthesized Output:';
-    synthSection.appendChild(synthLabel);
-    synthSection.appendChild(createAudioPlayer(demo.synthAudio, 'synthesized'));
+    synthRow.appendChild(synthLabel);
+    synthRow.appendChild(createAudioPlayer(demo.synthAudio, 'synthesized'));
+    
+    audioRows.appendChild(promptRow);
+    audioRows.appendChild(synthRow);
     
     card.appendChild(header);
     card.appendChild(text);
-    card.appendChild(promptSection);
-    card.appendChild(synthSection);
+    card.appendChild(audioRows);
     
     return card;
 }

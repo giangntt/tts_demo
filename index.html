@@ -7,81 +7,45 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">Vietnamese TTS Adaptation</div>
-            <div class="nav-links">
-                <a href="#introduction">Introduction</a>
-                <a href="#vietnamese-adaptation">Vietnamese Adaptation</a>
-                <a href="#cross-language">Cross-Language</a>
-                <a href="#code-switch">Code-Switch</a>
-            </div>
-        </div>
-    </nav>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Vietnamese Voice Adaptation in TTS</h1>
+            <p class="subtitle">A Modular and Data-Efficient Framework</p>
+        </header>
 
-    <!-- Hero Section -->
-    <section id="introduction" class="hero">
-        <div class="container">
-            <h1 class="hero-title">Vietnamese Voice Adaptation in TTS</h1>
-            <p class="hero-subtitle">A Modular and Data-Efficient Framework</p>
-            <div class="hero-description">
-                <p>This work presents a modular and data-efficient framework for Vietnamese voice adaptation in text-to-speech systems. Building on a compact zero-shot TTS backbone, the approach integrates a language-aware Mixture-of-Experts module together with style and prosody conditioning to improve pronunciation, naturalness, and speaker fidelity under limited data and compute. A staged fine-tuning strategy enables effective adaptation in both zero-shot and few-shot settings. Experiments show reduced word error rate and higher speaker similarity compared to Vietnamese baselines, with performance approaching models trained on much larger datasets. The results demonstrate that high-quality Vietnamese voice cloning is achievable without large-scale resources.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vietnamese Voice Adaptation Section -->
-    <section id="vietnamese-adaptation" class="demo-section">
-        <div class="container">
-            <h2 class="section-title">Zero-Shot & Few-Shot Vietnamese Voice Adaptation</h2>
-            <p class="section-description">
-                The framework demonstrates effective adaptation to different Vietnamese voices, accents, and speaking styles. 
-                Each demo shows a reference prompt audio and the synthesized output for the given text, showcasing the model's ability to maintain speaker fidelity and naturalness.
+        <!-- Introduction -->
+        <section id="introduction" class="section">
+            <p class="description">
+                This work presents a modular and data-efficient framework for Vietnamese voice adaptation in text-to-speech systems. Building on a compact zero-shot TTS backbone, the approach integrates a language-aware Mixture-of-Experts module together with style and prosody conditioning to improve pronunciation, naturalness, and speaker fidelity under limited data and compute. A staged fine-tuning strategy enables effective adaptation in both zero-shot and few-shot settings. Experiments show reduced word error rate and higher speaker similarity compared to Vietnamese baselines, with performance approaching models trained on much larger datasets. The results demonstrate that high-quality Vietnamese voice cloning is achievable without large-scale resources.
             </p>
-            
-            <div class="demo-grid" id="vietnamese-demos">
+        </section>
+
+        <!-- Vietnamese Voice Adaptation Section -->
+        <section id="vietnamese-adaptation" class="section">
+            <h2>Zero-Shot & Few-Shot Vietnamese Voice Adaptation</h2>
+            <div id="vietnamese-demos">
                 <!-- Demos will be populated by JavaScript -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Cross-Language Adaptation Section -->
-    <section id="cross-language" class="demo-section alt-bg">
-        <div class="container">
-            <h2 class="section-title">Cross-Language Adaptation</h2>
-            <p class="section-description">
-                The language-aware framework enables effective voice adaptation across languages. Here we demonstrate Vietnamese-to-English and English-to-Vietnamese voice adaptation, maintaining natural pronunciation and voice characteristics.
-            </p>
-            
-            <div class="demo-grid" id="cross-language-demos">
+        <!-- Cross-Language Adaptation Section -->
+        <section id="cross-language" class="section">
+            <h2>Cross-Language Adaptation</h2>
+            <div id="cross-language-demos">
                 <!-- Demos will be populated by JavaScript -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Code-Switch Section -->
-    <section id="code-switch" class="demo-section">
-        <div class="container">
-            <h2 class="section-title">Code-Switch Adaptation</h2>
-            <p class="section-description">
-                Real-world conversations often mix languages. The framework handles code-switching seamlessly, maintaining natural pronunciation and voice characteristics across language boundaries through the language-aware MoE module.
-            </p>
-            
-            <div class="demo-grid" id="code-switch-demos">
+        <!-- Code-Switch Section -->
+        <section id="code-switch" class="section">
+            <h2>Code-Switch Adaptation</h2>
+            <div id="code-switch-demos">
                 <!-- Demos will be populated by JavaScript -->
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Thesis Demo. Vietnamese Voice Adaptation in Text-to-Speech Systems.</p>
-        </div>
-    </footer>
+        </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-

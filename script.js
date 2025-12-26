@@ -189,24 +189,20 @@ function createAudioPlayer(audioSrc, label) {
     return wrapper;
 }
 
-// Create demo card with line-by-line audio layout
+// Create demo item with line-by-line audio layout
 function createDemoCard(demo) {
-    const card = document.createElement('div');
-    card.className = 'demo-card';
-    
-    const header = document.createElement('div');
-    header.className = 'demo-card-header';
+    const item = document.createElement('div');
+    item.className = 'demo-item';
     
     const title = document.createElement('h3');
-    title.className = 'demo-card-title';
+    title.className = 'demo-title';
     title.textContent = demo.title;
     
     const badge = document.createElement('span');
-    badge.className = 'demo-card-badge';
+    badge.className = 'demo-badge';
     badge.textContent = demo.badge;
     
-    header.appendChild(title);
-    header.appendChild(badge);
+    title.appendChild(badge);
     
     const text = document.createElement('div');
     text.className = 'demo-text';
@@ -221,7 +217,7 @@ function createDemoCard(demo) {
     promptRow.className = 'audio-row';
     const promptLabel = document.createElement('span');
     promptLabel.className = 'audio-row-label';
-    promptLabel.textContent = '📢 Reference Prompt:';
+    promptLabel.textContent = 'Reference Prompt:';
     promptRow.appendChild(promptLabel);
     promptRow.appendChild(createAudioPlayer(demo.promptAudio, 'prompt'));
     
@@ -230,18 +226,18 @@ function createDemoCard(demo) {
     synthRow.className = 'audio-row';
     const synthLabel = document.createElement('span');
     synthLabel.className = 'audio-row-label';
-    synthLabel.textContent = '🎵 Synthesized Output:';
+    synthLabel.textContent = 'Synthesized Output:';
     synthRow.appendChild(synthLabel);
     synthRow.appendChild(createAudioPlayer(demo.synthAudio, 'synthesized'));
     
     audioRows.appendChild(promptRow);
     audioRows.appendChild(synthRow);
     
-    card.appendChild(header);
-    card.appendChild(text);
-    card.appendChild(audioRows);
+    item.appendChild(title);
+    item.appendChild(text);
+    item.appendChild(audioRows);
     
-    return card;
+    return item;
 }
 
 // Populate demo sections
@@ -266,22 +262,8 @@ function populateDemos() {
     });
 }
 
-// Smooth scrolling for navigation links
+// Initialize demos
 document.addEventListener('DOMContentLoaded', () => {
     populateDemos();
-    
-    // Add smooth scrolling to navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
 });
 

@@ -1,10 +1,10 @@
-# ZipVoice Demo Website
+# Vietnamese Voice Adaptation in TTS - Thesis Demo Website
 
-A beautiful, interactive demo website showcasing ZipVoice's capabilities for Vietnamese voice adaptation, cross-language adaptation, and code-switching.
+A beautiful, interactive demo website showcasing a modular and data-efficient framework for Vietnamese voice adaptation in text-to-speech systems. This demo page demonstrates zero-shot and few-shot voice adaptation, cross-language adaptation, and code-switching capabilities.
 
 ## Features
 
-- **Introduction Section**: Overview of ZipVoice model and its key features
+- **Introduction Section**: Overview of the framework with language-aware Mixture-of-Experts module, style and prosody conditioning
 - **Vietnamese Voice Adaptation**: Zero-shot and few-shot demos for different Vietnamese accents and voices
 - **Cross-Language Adaptation**: Demonstrations of voice adaptation across languages
 - **Code-Switch Adaptation**: Real-world code-switching examples

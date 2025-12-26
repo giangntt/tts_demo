@@ -10,39 +10,69 @@
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1>Vietnamese Voice Adaptation in TTS</h1>
-            <p class="subtitle">A Modular and Data-Efficient Framework</p>
+            <h1>Voice Adaptation for Vietnamese<br>Text-to-Speech in Low-Resource Settings</h1>
+            <p class="subtitle">A Modular and Resource-Efficient Framework</p>
         </header>
 
         <!-- Introduction -->
         <section id="introduction" class="section">
             <p class="description">
-                This work presents a modular and data-efficient framework for Vietnamese voice adaptation in text-to-speech systems. Building on a compact zero-shot TTS backbone, the approach integrates a language-aware Mixture-of-Experts module together with style and prosody conditioning to improve pronunciation, naturalness, and speaker fidelity under limited data and compute. A staged fine-tuning strategy enables effective adaptation in both zero-shot and few-shot settings. Experiments show reduced word error rate and higher speaker similarity compared to Vietnamese baselines, with performance approaching models trained on much larger datasets. The results demonstrate that high-quality Vietnamese voice cloning is achievable without large-scale resources.
+                This work presents a modular and resource-efficient framework for Vietnamese voice adaptation in text-to-speech systems. Building on a compact zero-shot TTS backbone, the approach integrates a language-aware Mixture-of-Experts module together with enhanced speech conditioning modules to improve intelligibility, naturalness, and speaker fidelity under limited data and compute. A staged fine-tuning strategy enables effective adaptation in both zero-shot and few-shot settings. Experiments show reduced word error rate and higher speaker similarity compared to baselines, with speaker similarity approaching the ground truth levels. The results demonstrate that high-quality Vietnamese voice cloning is achievable without large-scale resources.
             </p>
         </section>
 
         <!-- Vietnamese Voice Adaptation Section -->
         <section id="vietnamese-adaptation" class="section">
-            <h2>Zero-Shot & Few-Shot Vietnamese Voice Adaptation</h2>
-            <div id="vietnamese-demos">
-                <!-- Demos will be populated by JavaScript -->
-            </div>
+            <h2>Vietnamese Voice Adaptation (Zero-Shot & Few-Shot)</h2>
+            <table class="demo-table">
+                <thead>
+                    <tr>
+                        <th>Tag</th>
+                        <th>Prompt</th>
+                        <th>Text</th>
+                        <th>Synthesized Output</th>
+                    </tr>
+                </thead>
+                <tbody id="vietnamese-demos">
+                    <!-- Demos will be populated by JavaScript -->
+                </tbody>
+            </table>
         </section>
 
         <!-- Cross-Language Adaptation Section -->
         <section id="cross-language" class="section">
-            <h2>Cross-Language Adaptation</h2>
-            <div id="cross-language-demos">
-                <!-- Demos will be populated by JavaScript -->
-            </div>
+            <h2>Cross-Lingual Voice Adaptation</h2>
+            <table class="demo-table">
+                <thead>
+                    <tr>
+                        <th>Tag</th>
+                        <th>Prompt</th>
+                        <th>Text</th>
+                        <th>Synthesized Output</th>
+                    </tr>
+                </thead>
+                <tbody id="cross-language-demos">
+                    <!-- Demos will be populated by JavaScript -->
+                </tbody>
+            </table>
         </section>
 
         <!-- Code-Switch Section -->
         <section id="code-switch" class="section">
-            <h2>Code-Switch Adaptation</h2>
-            <div id="code-switch-demos">
-                <!-- Demos will be populated by JavaScript -->
-            </div>
+            <h2>Code-Switch Speech Adaptation</h2>
+            <table class="demo-table">
+                <thead>
+                    <tr>
+                        <th>Tag</th>
+                        <th>Prompt</th>
+                        <th>Text</th>
+                        <th>Synthesized Output</th>
+                    </tr>
+                </thead>
+                <tbody id="code-switch-demos">
+                    <!-- Demos will be populated by JavaScript -->
+                </tbody>
+            </table>
         </section>
     </div>
 

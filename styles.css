@@ -15,24 +15,24 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 60px;
 }
 
 /* Header */
 .header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: #333;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #666;
 }
 
@@ -42,16 +42,15 @@ body {
 }
 
 .section h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
     color: #333;
-    border-bottom: 2px solid #333;
-    padding-bottom: 0.5rem;
 }
 
 .description {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.8;
     color: #555;
     margin-bottom: 2rem;
@@ -60,79 +59,72 @@ body {
     margin-right: auto;
 }
 
-/* Demo Card */
-.demo-item {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #ddd;
+
+/* Table */
+.demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
 }
 
-.demo-item:last-child {
-    border-bottom: none;
+.demo-table thead {
+    border-bottom: 2px solid #333;
 }
 
-.demo-title {
-    font-size: 1.3rem;
+.demo-table th {
+    text-align: left;
+    padding: 0.75rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
     color: #333;
 }
 
-.demo-badge {
-    display: inline-block;
-    background: #666;
-    color: white;
-    padding: 0.2rem 0.6rem;
-    border-radius: 3px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-left: 0.5rem;
-    vertical-align: middle;
+.demo-table td {
+    padding: 1rem 0.75rem;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
 }
 
+.demo-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.demo-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.demo-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.demo-table td:first-child,
+.demo-table th:first-child {
+    width: 150px;
+    font-weight: 600;
+}
+
+.demo-table td:nth-child(2),
+.demo-table th:nth-child(2) {
+    width: 130px;
+}
+
+.demo-table td:nth-child(3),
+.demo-table th:nth-child(3) {
+    min-width: 300px;
+}
+
+/* Text cell */
 .demo-text {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: #f5f5f5;
-    border-left: 3px solid #666;
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.9rem;
+    line-height: 1.6;
     color: #444;
 }
 
-/* Audio Rows */
-.audio-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.audio-row {
+/* Audio Player */
+.audio-player-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.5rem 0;
-}
-
-.audio-row-label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #555;
-    min-width: 150px;
-    flex-shrink: 0;
-}
-
-.audio-player-wrapper {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.audio-controls {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    width: 100%;
+    gap: 0.5rem;
 }
 
 .audio-player {
@@ -143,17 +135,17 @@ body {
     background: #333;
     color: white;
     border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     transition: background 0.2s;
-    flex-shrink: 0;
     padding: 0;
+    flex-shrink: 0;
 }
 
 .play-button:hover {
@@ -161,37 +153,58 @@ body {
 }
 
 .audio-duration {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #666;
     font-family: 'Courier New', monospace;
-    min-width: 70px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .demo-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .demo-table thead,
+    .demo-table tbody,
+    .demo-table tr,
+    .demo-table td,
+    .demo-table th {
+        display: block;
+    }
+    
+    .demo-table thead {
+        display: none;
+    }
+    
+    .demo-table tr {
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .demo-table td {
+        border: none;
+        padding: 0.5rem 0;
+        display: block;
+    }
+    
+    .demo-table td:first-child {
+        font-weight: 600;
+        padding-bottom: 0.25rem;
+        margin-bottom: 0.25rem;
+        border-bottom: 1px solid #eee;
+    }
+    
     .header h1 {
-        font-size: 2rem;
-    }
-    
-    .subtitle {
-        font-size: 1rem;
-    }
-    
-    .section h2 {
         font-size: 1.5rem;
     }
     
-    .audio-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-    
-    .audio-row-label {
-        min-width: auto;
-    }
-    
-    .audio-controls {
-        width: 100%;
+    .section h2 {
+        font-size: 1.3rem;
     }
 }

@@ -39,7 +39,7 @@ const demoData = {
             text: 'Thanh gươm của chàng kỵ sĩ hăng máu bổ xuống trước với một sức mạnh ghê gớm, tưởng chỉ một nhát đó cũng đủ kết thúc cuộc chiến đấu và cả cuộc đời phiêu lưu giang hồ của chàng hiệp sĩ xứ man-tra.',
             promptAudio: 'audio/middle_female_prompt.wav',
             synthAudio: 'audio/middle_female_syn.wav',
-            badge: 'Zero-Shot'
+            badge: 'Few-Shot'
         },
         {
             id: 'middle_male',
@@ -47,7 +47,7 @@ const demoData = {
             text: 'Giờ đây, dòng họ đã làm được một việc mà có lẽ tiền nhân cũng chưa hề mơ tới: Đưa một dòng máu lạ về hoà với huyết thống họ Đào để sáng tạo nên một dòng máu khác, chắc hẳn ưu việt hơn nhiều.',
             promptAudio: 'audio/middle_male_prompt.wav',
             synthAudio: 'audio/middle_male_syn.wav',
-            badge: 'Zero-Shot'
+            badge: 'Few-Shot'
         },
         {
             id: 'kid_girl',
